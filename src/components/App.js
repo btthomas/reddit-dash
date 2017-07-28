@@ -5,6 +5,7 @@ import Posts from '../containers/Posts.js';
 import Dashboard from '../containers/Dashboard.js';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import DashboardComponent from '../components/Dashboard.js';
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-  }
-
   render() {
-    return <div>Dashboard goes here</div>;
+    return <DashboardComponent {...this.props} />;
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  const { collapsed, reddit } = state;
+
+  return {
+    collapsed: !collapsed,
+    reddit
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard);

@@ -5,8 +5,6 @@ class Posts extends Component {
   constructor() {
     super();
 
-    this.renderResponse = this.renderResponse.bind(this);
-    this.renderSpinner = this.renderSpinner.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -19,7 +17,7 @@ class Posts extends Component {
   renderResponse() {
     return (
       <div>
-        <button onClick={this.handleClick}>Click to {this.props.collapsed ? 'expand' : 'collapse'}</button>
+        <button onClick={this.handleClick}>Click to {this.props.collapsed ? 'expand' : 'collapse'} posts</button>
         {!this.props.collapsed && this.renderExpanded()}
       </div>
     );
