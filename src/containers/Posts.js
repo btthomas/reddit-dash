@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleCollapsed } from '../actions';
 import PostsComponent from '../components/Posts.js';
 
 class Posts extends Component {
@@ -6,22 +8,20 @@ class Posts extends Component {
     super();
 
     this.state = {
-      redditResponse: null,
-      collapsed: true
+      redditResponse: null
     };
 
     this.fetchReddit = this.fetchReddit.bind(this);
-    this.toggleCollapsed = this.toggleCollapsed.bind(this);
+    this.dispatchToggleCollapsed = this.dispatchToggleCollapsed.bind(this);
   }
 
   componentDidMount() {
     this.fetchReddit();
   }
 
-  toggleCollapsed() {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
+  dispatchToggleCollapsed() {
+    const { dispatch } = this.props;
+    dispatch(toggleCollapsed());
   }
 
   fetchReddit() {
@@ -40,11 +40,21 @@ class Posts extends Component {
 
   render() {
     const props = {
+      ...this.props,
       ...this.state,
-      handleClick: this.toggleCollapsed
+      handleClick: this.dispatchToggleCollapsed
     };
     return <PostsComponent {...props}/>;
   }
 }
 
-export default Posts;
+const mapStateToProps = (state) => {
+  console.log(state);
+  const { collapsed } = state;
+
+  return {
+    collapsed
+  };
+}
+
+export default connect(mapStateToProps)(Posts);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../images/reddit-icon.png';
 import './App.css';
 import Posts from '../containers/Posts.js';
-// import Dashboard from '../containers/Dashboard.js';
+import Dashboard from '../containers/Dashboard.js';
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
           <h2>Welcome to the reddit dashboard</h2>
         </div>
         <Posts />
+        <Dashboard />
       </div>
     );
   }
