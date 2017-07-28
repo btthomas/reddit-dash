@@ -2,6 +2,7 @@ import { REDDIT_FETCH_BEGIN, REDDIT_FETCH_SUCCESS, REDDIT_FETCH_FAILURE } from '
 
 const reddit = (
   state = {
+    fetched: false,
     isFetching: false,
     posts: null
   },
@@ -16,12 +17,14 @@ const reddit = (
     case REDDIT_FETCH_SUCCESS:
       return {
         ...state,
+        fetched: true,
         isFetching: false,
         posts: action.posts
       }
     case REDDIT_FETCH_FAILURE:
       return {
         ...state,
+        fetched: false,
         isFetching: false
       }
     default:

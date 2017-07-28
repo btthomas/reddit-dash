@@ -19,6 +19,7 @@
 
 .spin {
   display: block;
+  position: absolute;
   margin: 50px auto;
   width: 100px;
   animation-name: logo-spin;
@@ -34,4 +35,23 @@
 
 .strike-through {
   text-decoration: line-through;
+}
+
+.chartWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80vh;
+}
+
+.chart {
+  flex: 1 1 auto;
+  position: relative;
+}
+
+.chart-title {
+  position: absolute;
+  text-anchor: center;
+  left: 50%;
 }

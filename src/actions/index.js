@@ -31,14 +31,12 @@ export const redditFetchFailure = (error) => {
 export function fetchReddit() {
   return function (dispatch) {
     dispatch(redditFetchBegin());
-    return fetch('https://www.reddit.com/.json')
-      .then(
-        res => res.json(),
-        err => {
-          console.log('An error occured in fetchReddit', err);
-          dispatch(redditFetchFailure(err));
-        }
-      )
-      .then(json => dispatch(redditFetchSuccess(json)));
+    return fetch('https://www.reddit.com/r/all.json')
+      .then(res => res.json())
+      .then(json => dispatch(redditFetchSuccess(json)))
+      .catch(err => {
+        console.log('An error occured in fetchReddit', err);
+        dispatch(redditFetchFailure(err));
+      });
   }
 }

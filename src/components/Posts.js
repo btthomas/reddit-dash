@@ -15,7 +15,7 @@ class Posts extends Component {
   }
 
   renderResponse() {
-    return (
+    return this.props.fetched && (
       <div>
         <button onClick={this.handleClick}>Click to {this.props.collapsed ? 'expand' : 'collapse'} posts</button>
         {!this.props.collapsed && this.renderExpanded()}
@@ -29,7 +29,7 @@ class Posts extends Component {
         {this.props.posts.map(post => {
           return (
             <li key={post.id} className={post.over_18 ? 'strikethrough' : ''}>
-              {post.title} <a href={post.permalink}>link</a>
+              {post.title} <a href={`https://reddit.com/${post.permalink}`}>link</a>
             </li>
           );
         })}
