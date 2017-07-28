@@ -28,10 +28,10 @@ class Posts extends Component {
   renderExpanded() {
     return (
       <ol>
-        {this.props.redditResponse.data.children.map(post => {
+        {this.props.posts.map(post => {
           return (
-            <li key={post.data.id} className={post.data.over_18 ? 'strikethrough' : ''}>
-              {post.data.title} <a href={post.data.permalink}>link</a>
+            <li key={post.id} className={post.over_18 ? 'strikethrough' : ''}>
+              {post.title} <a href={post.permalink}>link</a>
             </li>
           );
         })}
@@ -44,7 +44,7 @@ class Posts extends Component {
   }
 
   render() {
-    return this.props.redditResponse ? this.renderResponse() : this.renderSpinner();
+    return this.props.isFetching ? this.renderSpinner() : this.renderResponse();
   }
 }
 

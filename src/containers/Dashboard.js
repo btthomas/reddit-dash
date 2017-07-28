@@ -6,7 +6,6 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    console.log('dash mounted');
   }
 
   render() {
