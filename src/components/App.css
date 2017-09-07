@@ -50,6 +50,7 @@
   position: relative;
 }
 
+/*@media screen and (max-width: 800px) {}*/
 .chart-title {
   position: absolute;
   text-anchor: center;

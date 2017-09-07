@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 class Dashboard extends Component {
   constructor() {
@@ -17,8 +17,6 @@ class Dashboard extends Component {
   getData() {
     const { posts } = this.props.reddit;
     const now = new Date().getTime() / 1000;
-
-    console.log(posts);
 
     if ( !posts.length ) {
       return [];
@@ -42,7 +40,6 @@ class Dashboard extends Component {
         <XAxis dataKey="rank" />
         <YAxis />
         <Tooltip />
-        <Legend />
         <Bar 
           fill={color}
           dataKey={property}
@@ -52,7 +49,6 @@ class Dashboard extends Component {
   }
 
   render() {
-
     const charts = [
       {
         title: 'Karma', 
@@ -70,9 +66,9 @@ class Dashboard extends Component {
         color: "#11dd88",
       },
       {
-        title: 'Age', 
-        key: 'age',
-        color: "#11dd88",
+        title: 'Gold', 
+        key: 'gilded',
+        color: "#dd1188",
       },
     ];
 
@@ -93,7 +89,7 @@ class Dashboard extends Component {
 
 function getSize() {
   return {
-    width: 1200,
+    width: 1300,
     height: 800
   }
 }
