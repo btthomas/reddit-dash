@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-
-    this.props.handleClick();
-  }
 
   getData() {
     const posts = this.props.redditResponse.data.children.map(post => post.data);
