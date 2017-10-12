@@ -5,9 +5,10 @@
   "dependencies": {
     "react": "^16.0.0-beta.2",
     "react-dom": "^16.0.0-beta.2",
-    "react-redux": "^5.0.5",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.0.10",
-    "recharts": "^1.0.0-alpha.2",
+    "react-vis": "^1.7.7",
+    "recharts": "^1.0.0-apha.5",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../images/reddit-icon.png';
-import './App.css';
 import Posts from '../containers/Posts.js';
 import Dashboard from '../containers/Dashboard.js';
+import './App.css';
+import '../../node_modules/react-vis/dist/style.css';
 
 class App extends Component {
 
