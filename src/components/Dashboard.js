@@ -60,15 +60,17 @@ class Dashboard extends Component {
     return post[property] || 0;
   }
 
-  renderChart(num, property, color) {
+  renderChart({ title, key, color }) {
     const { width, height } = this.state;
-    const data = this.getData(property);
+    const data = this.getData(key);
+
+    console.log(title, key, color, data);
 
     return (
-      <XYPlot margin={{left: 100, right: 20, top: 20, bottom: 60}} data={data} width={width} height={height}>
+      <XYPlot margin={{left: 60, right: 20, top: 20, bottom: 40}} data={data} width={width} height={height}>
         <HorizontalGridLines data={data} tickTotal={8} />
         <XAxis data={data} />
-        <YAxis data={data} />
+        <YAxis data={data} orientation='left' title={title}/>
         <VerticalBarSeries
           data={data}
           color={color}
@@ -101,13 +103,12 @@ class Dashboard extends Component {
       },
     ];
 
-              // <h3 className="chart-title">{chart.title}</h3>
     return this.props.reddit.fetched && (
       <div className="chartWrapper">
-        {charts.map( (chart, index) => {
+        {charts.map(chart => {
           return (
             <div className="chart" key={chart.key}>
-              {this.renderChart(index, chart.key, chart.color)}
+              {this.renderChart(chart)}
             </div>
           )
         })}
